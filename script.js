@@ -1,3 +1,4 @@
+<!-----------LIGHT & DARK MODE------------->
 const themeToggle = document.getElementById('themeToggle');
 
 themeToggle.addEventListener('click', () => {
@@ -11,6 +12,7 @@ themeToggle.addEventListener('click', () => {
 });
 
 
+<!-----------SEARCH BAR------------->
 const searchForm = document.querySelector('.search-bar');
 
 searchForm.addEventListener('submit', (e) => {
@@ -22,27 +24,57 @@ searchForm.addEventListener('submit', (e) => {
 });
 
 
-let slides = document.querySelectorAll('.slide');
+<!-----------HOMEPAGE TOP-SLIDER------------->
+const slides = document.querySelectorAll('.slide');
+const slidesContainer = document.querySelector('.slides');
+const totalSlides = slides.length;
+
+const dotsContainer = document.getElementById('dots');
+
 let currentIndex = 0;
 
-function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove('active'));
-  slides[index].classList.add('active');
+/* ---------------- CREATE DOTS ---------------- */
+let dots = [];
+
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement('span');
+  dot.classList.add('dot');
+  dotsContainer.appendChild(dot);
+  dots.push(dot);
+
+  dot.addEventListener('click', () => {
+    currentIndex = i;
+    updateSlider();
+  });
 }
 
+/* ---------------- UPDATE SLIDER ---------------- */
+function updateSlider() {
+  slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+  dots.forEach(dot => dot.classList.remove('active'));
+  if (dots[currentIndex]) {
+    dots[currentIndex].classList.add('active');
+  }
+}
+
+/* ---------------- NEXT / PREV ---------------- */
 function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
+  currentIndex = (currentIndex + 1) % totalSlides;
+  updateSlider();
 }
 
 function prevSlide() {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  showSlide(currentIndex);
+  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+  updateSlider();
 }
 
-// AUTO SLIDE EVERY 3 SECONDS
+/* ---------------- AUTO SLIDE ---------------- */
 setInterval(nextSlide, 3000);
 
-// BUTTON CONTROLS
-document.getElementById('next').addEventListener('click', nextSlide);
-document.getElementById('prev').addEventListener('click', prevSlide);
+/* ---------------- BUTTONS ---------------- */
+document.getElementById('next')?.addEventListener('click', nextSlide);
+document.getElementById('prev')?.addEventListener('click', prevSlide);
+
+/* ---------------- INIT ---------------- */
+updateSlider();
