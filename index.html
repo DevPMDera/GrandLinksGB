@@ -14,7 +14,7 @@
   <!-- NAVBAR -->
   <header>
     <nav class="navbar">
-      <img src="https://cdn-icons-png.flaticon.com/128/4264/4264990.png" alt="Profile Image" class="logo-img"><h1>ALGOVIRAL</h1>
+      <div class="logo"><img src="https://cdn-icons-png.flaticon.com/128/3595/3595030.png" alt="Profile Image" class="logo-img"><p>Algoviral</p></div>
       
       <ul class="nav-links">
         <li><a href="#">YouTube</a></li>
@@ -22,11 +22,10 @@
         <li><a href="#">Twitter</a></li>
         <li><a href="#">Facebook</a></li>
         <li><a href="#">Telegram</a></li>
-        <li><a href="#">Twitch</a></li>
       </ul>
       
        <form class="search-bar">
-    <input type="text" placeholder="Search logs & gifts" id="searchInput">
+    <input type="text" placeholder="Search for Service" id="searchInput">
   </form>
       
       <button id="themeToggle">🌙</button>
@@ -35,10 +34,32 @@
   
   <section class="landing">
     
-    <div class="landing-h1">Buy TikTok and Instagram <br>Followers</div>
+    <div class="landing-h1">Buy TikTok and Instagram <br><span id="typing-word">Followers</span></div>
     <div class="landing-h2">Boost your presence across all major social media platforms <br>with our premium growth services</div>
     
+    
+  <h1>Social Media Services</h1>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="instagram">Instagram</button>
+    <button class="tab-btn" data-tab="tiktok">TikTok</button>
+    <button class="tab-btn" data-tab="twitter">Twitter</button>
+    <button class="tab-btn" data-tab="youtube">YouTube</button>
+  </div>
+
+  <!-- Content -->
+  <div class="tab-content active" id="instagram"></div>
+  <div class="tab-content" id="tiktok"></div>
+  <div class="tab-content" id="twitter"></div>
+  <div class="tab-content" id="youtube"></div>
+
   </section>
+  
+  
+  
+  
+  
   
   
   <section class="how-to-buy">
@@ -57,7 +78,15 @@
       </div>
     
    <div class="htb-box">
-      <div class="htb-box-head">Step 1</div>
+      <div class="htb-box-head">Step 2</div>
+     <img src="https://cdn-icons-png.flaticon.com/128/1999/1999625.png" class="htb-box-img">
+    
+      <h2>Create Account</h2>
+      <div class="htb-box-text">Begin your journey by creating your free account. No credit card required to get started.</div>
+      </div>
+      
+      <div class="htb-box">
+      <div class="htb-box-head">Step 3</div>
      <img src="https://cdn-icons-png.flaticon.com/128/1999/1999625.png" class="htb-box-img">
     
       <h2>Create Account</h2>
@@ -256,6 +285,6 @@
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
