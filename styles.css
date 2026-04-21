@@ -214,7 +214,7 @@ body.dark-mode #themeToggle {
 }
 
 .card:hover {
-  transform: scale(1.02);
+  transform: scale(1.1);
 }
 
 .card h3 {
@@ -588,21 +588,92 @@ section {
   background: #000;
 }
 
-/**@media (max-width: 768px)**/
-@media (max-width: 400px) {
+@media (max-width: 768px)
+/**@media (max-width: 400px)**/ {
   .search-bar input {
-    width: 160px;
+    width: 100%;
   }
+  
+  .logo {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+}
 
+.logo p{
+  padding: 5px 0px;
+}
+
+.logo-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+  
+  #themeToggle {
+  width: 30px;
+  height: 30px;
+  background: #111111;
+  color: #ffffff;
+  transition: 0.3s ease;
+  border-radius: 50%;
+  font-size: 16px;
+}
+  
+  
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
   }
-
-  .cards {
-    flex-direction: column;
-    align-items: center;
+  
+  .nav-links, .search-bar{
+    display: none;
   }
+  
+  .landing-h1{
+    font-size: 35px;
+  }
+  
+   .landing-h2{
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  
+   .landing h1{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .tabs{
+    transform: scale(0.8);
+  }
+  
+  .tab-content {
+  display: none;
+  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+}
+
+.tab-content.active {
+  display: grid;
+}
+  
+  .card h3{
+    transform: scale(0.9);
+    text-align: center;
+  }
+  
+  .price{
+    font-size: 16px;
+  }
+  
+  .per-room-txt{
+    font-size: 12px;
+    margin-bottom: 10px:
+  }
+
+
 }
 
 
