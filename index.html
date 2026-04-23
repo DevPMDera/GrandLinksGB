@@ -60,9 +60,10 @@
   
   <div class="modal" id="orderModal">
   <div class="modal-content">
-    <span class="close-btn" id="closeModal">&times;</span>
-
-    <h2>Place Order</h2>
+    <div class="modal-header">
+      <h2>Place Order</h2>
+      <span class="close-btn" id="closeModal">&times;</span>
+    </div>
 
     <label>Category</label>
     <input type="text" id="modal-category" readonly>
@@ -89,9 +90,11 @@
   <div id="paymentModal" class="modal">
   <div class="modal-content">
 
-    <span id="closePaymentModal">&times;</span>
+    <div class="modal-header">
+      <h2>Complete Payment</h2>
+      <span id="closePaymentModal">&times;</span>
+    </div>
 
-    <h2>Complete Payment</h2>
     <p id="payment-order-id"></p>
 
     <!-- TABS -->
