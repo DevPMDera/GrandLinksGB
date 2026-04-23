@@ -238,7 +238,6 @@ fetch("https://hook.eu1.make.com/cc7ua14hn8ya11ofj6o5nrnhffsclusm", {
     quantity,
     charge
   }),
-  mode: "no-cors" // 🔥 THIS FIXES IT
 })
 .then(() => {
   alert("Order sent successfully!");
