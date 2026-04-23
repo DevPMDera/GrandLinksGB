@@ -1,3 +1,49 @@
+function notify(message, type = "info") {
+  const toast = document.createElement("div");
+
+  toast.textContent = message;
+
+  const colors = {
+    info: "#111",
+    success: "#00A86B",
+    error: "#D9534F",
+    warning: "#F0AD4E"
+  };
+
+  toast.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: ${colors[type] || "#111"};
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    z-index: 9999;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.3s ease;
+  `;
+
+  document.body.appendChild(toast);
+
+  // animate in
+  setTimeout(() => {
+    toast.style.opacity = "1";
+    toast.style.transform = "translateY(0)";
+  }, 50);
+
+  // remove after 3s
+  setTimeout(() => {
+    toast.style.opacity = "0";
+    toast.style.transform = "translateY(20px)";
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+
+
 // ----------- THEME TOGGLE -----------
 const themeToggle = document.getElementById('themeToggle');
 
@@ -13,7 +59,7 @@ const searchForm = document.querySelector('.search-bar');
 searchForm?.addEventListener('submit', (e) => {
   e.preventDefault();
   const query = document.getElementById('searchInput').value.toLowerCase();
-  alert("You searched for: " + query);
+  notify("You searched for: " + query, "info");
 });
 
 
@@ -101,8 +147,8 @@ document.addEventListener('click', (e) => {
     const service = e.target.dataset.name;
     const price = e.target.dataset.price;
 
-    alert(`You selected ${service} on ${platform} for ₦${price}`);
-
+  notify(`${service} selected (${platform}) — ₦${price} per 1000`, "success");
+    
     // future:
     // window.location.href = `/checkout?platform=${platform}&service=${service}&price=${price}`;
   }
@@ -180,7 +226,7 @@ document.addEventListener('click', (e) => {
     currentPrice = price;
 
     categoryField.value = platform;
-    descriptionField.value = `${service} service (${platform}) - ₦${price} per 1000`;
+    descriptionField.value = `(${platform}) ${service} service - ₦${price} per 1000`;
     quantityField.value = "";
     chargeField.value = "";
 
@@ -224,7 +270,7 @@ document.getElementById('confirmOrder').addEventListener('click', () => {
   currentOrderId = "ORD-" + Date.now();
   
  if (!link || !quantity || !charge) {
-  alert("Please fill all fields");
+  notify("Please fill all fields", "warning");
   return;
 }
   
@@ -243,7 +289,7 @@ fetch("https://hook.eu1.make.com/cc7ua14hn8ya11ofj6o5nrnhffsclusm", {
 }),
 })
 .then(() => {
-  alert("Order sent!");
+  notify("Order sent!", "success");
 
   modal.style.display = "none";
 
@@ -256,7 +302,7 @@ fetch("https://hook.eu1.make.com/cc7ua14hn8ya11ofj6o5nrnhffsclusm", {
   startTimer();
 })
 .catch(() => {
-  alert("Failed to send order");
+  notify("Failed to send order", "warning");
 });
   
   linkField.value = "";
@@ -287,7 +333,7 @@ function startTimer() {
     if (time < 0) {
       clearInterval(timerInterval);
       document.getElementById('paymentModal').style.display = "none";
-      alert("Payment time expired");
+      notify("Payment time expired", "warning");
     }
   }, 1000);
 }
@@ -307,7 +353,7 @@ document.querySelectorAll('.pay-tab').forEach(btn => {
 document.getElementById('paidBtn').addEventListener('click', () => {
 
   if (!currentOrderId) {
-    alert("No active order");
+    notify("No active order", "warning");
     return;
   }
 
@@ -322,11 +368,11 @@ document.getElementById('paidBtn').addEventListener('click', () => {
     })
   })
   .then(() => {
-    alert("Payment notification sent!");
+    notify("Payment notification sent!", "success");
     document.getElementById('paymentModal').style.display = "none";
   })
   .catch(() => {
-    alert("Failed to notify");
+    notify("Failed to notify", "error");
   });
 
 });
