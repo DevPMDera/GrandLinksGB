@@ -187,6 +187,8 @@ body.dark-mode #themeToggle {
 .tab-btn.active {
   background: red;
   color: white;
+  transform: scale(1.15);
+  margin: 0px 5px;
 }
 
 /* Content */
