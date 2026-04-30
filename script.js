@@ -73,8 +73,8 @@ if (track) {
 // ----------- DATA -----------
 const data = {
   instagram: [
-    { name: "Likes", price: 500, speed: "Instant" },
-    { name: "Followers", price: 1500, speed: "1 - 2 Hours" },
+    { name: "Likes", price: 8500, speed: "12 Hours" },
+    { name: "Followers", price: 12850, speed: "3 - 6 Hours" },
     { name: "Views", price: 300, speed: "Instant" },
     { name: "Comments", price: 800, speed: "30 mins" },
     { name: "Shares", price: 600, speed: "Instant" }
