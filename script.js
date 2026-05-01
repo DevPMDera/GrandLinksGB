@@ -76,7 +76,8 @@ const data = {
     { name: "Likes", price: 8500, speed: "12 Hours" },
     { name: "Followers", price: 12850, speed: "3 - 6 Hours" },
     { name: "Views", price: 300, speed: "Instant" },
-    { name: "Comments", price: 800, speed: "30 mins" },
+    { name: "Custom Comments", price: 25200, speed: " 2 Hours" },
+    { name: "Random Comments", price: 7550, speed: " 8 Hours" },
     { name: "Shares", price: 600, speed: "Instant" }
   ],
   tiktok: [
