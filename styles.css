@@ -268,6 +268,7 @@ body.dark-mode #themeToggle {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+
 /* Modal Box */
 .modal-content {
   background: white;
@@ -279,6 +280,11 @@ body.dark-mode #themeToggle {
   flex-direction: column;
   gap: 10px;
 } 
+
+.dark-mode .modal-content{
+  background: black;
+  color: white;
+}
 
 .modal-header{
   display: flex;
@@ -294,9 +300,15 @@ body.dark-mode #themeToggle {
   border: 1px solid #ccc;
 }
 
+.dark-mode .modal-content input,
+.dark-mode .modal-content textarea {
+  background-color: rgba(50, 50, 50, 0.5);
+  color: white;
+}
+
 .min-max-label{
   font-size: 12px;
-  color: rgba(50, 50, 50, 0.5);
+  color: rgba(100, 100, 100, 0.9);
   margin: 3px;
 }
 
