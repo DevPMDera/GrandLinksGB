@@ -89,7 +89,7 @@ const data = {
   ],
   twitter: [
     { name: "Likes", price: 300, speed: "Instant" },
-    { name: "Followers", price: 1000, speed: "2 Hours" },
+    { name: "Followers", price: 38850, speed: "2 Hours" },
     { name: "Retweets", price: 600, speed: "Instant" },
     { name: "Replies", price: 700, speed: "1 Hour" },
     { name: "Impressions", price: 900, speed: "Fast" }
